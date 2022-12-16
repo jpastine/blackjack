@@ -1,0 +1,59 @@
+html {
+  box-sizing: border-box;
+}
+
+*, 
+*::before, 
+*::after {
+  box-sizing: inherit;
+}
+
+
+body {
+  background-color: green;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+}
+
+#dealer-side > h3 {
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+}
+
+#dealer-message {
+  display: flex;
+  justify-content: center;
+}
+
+#deal {
+  display: flex;
+  justify-content:center ;
+  align-items: center;
+}
+
+#hit-stand-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+#place-bet {
+  display: flex;
+  justify-content: center;
+}
+
+#dealer-card-one,
+#dealer-card-two {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: gray;
+  border: 1px solid black;
+  height: 230px;
+  width: 150px;
+  
+}
