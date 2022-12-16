@@ -13,33 +13,39 @@
 
   <section id="dealer-side">
     <h3>Dealer</h3>
+    <h2 id="dealer-message">Message</h2>
+    <button id="deal">Deal</button>
     <div>
-      <div id="dealer-cards">
-        <div id="dealer-card-total">
-        </div>
+      <div id="dealer-card-total">
+        <p id="d-card-total">0</p>
+        <div id="dealer-cards"></div>
       </div>
     </div>
   </section>
 
   <section id="hit-stand-buttons">
     <button id="hit">Hit</button>
+    <p id="place-bet">Place your bet!</p>
     <button id="stand">Stand</button>
   </section>
 
   <section id="player-side">
     <h3>Player</h3>
+    <h2 id="player-message">Message</h2>
     <div>
-      <div id="player-cards">
+      <div id="player-cards"></div>
         <div id="player-card-total">
+          <p id="p-card-total">0</p>
         </div>
-      </div>
     </div>
   </section>
 
   <section id="bank">
     <h4>Bank</h4>
-    <div id="dollar-amount">
-      <button id="all-in">All in</button>
+    <h5 id="dollar-amount">$0</h5>
+      <div>
+        <button id="all-in">All in</button>
+      </div>
     </div>
   </section>
 
@@ -52,6 +58,8 @@
     <button id="one-hundred dollars">$100</button>
     <button id="five-hundred-dollars">500</button>
   </section>
+
+  <button id="play-again">Play Again</button>
   
 </body>
 </html>
