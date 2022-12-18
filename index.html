@@ -14,10 +14,10 @@
   <section id="dealer-side">
     <h3>Dealer</h3>
     <h2 id="dealer-message">Message</h2>
-    <p id="place-bet">Place your bet!</p>
+    
     
     <div>
-      <div id="dealer-card-total">
+      <div id="dealer-cards">
         <p id="d-card-total">0</p>
         <div id="dealer-card-one"></div>
         <div id="dealer-card-two"></div>
@@ -28,21 +28,26 @@
 
   <section id="hit-stand-buttons">
     <button id="hit">Hit</button>
-    
     <button id="deal">Deal</button>
+      
     <button id="stand">Stand</button>
   </section>
 
   <section id="player-side">
     <h3>Player</h3>
+      <div id="player-cards">
+        <div id="player-card-one"></div>
+        <div id="player-card-two"></div>
+      </div>
     <h2 id="player-message">Message</h2>
     <div>
-      <div id="player-cards"></div>
-        <div id="player-card-total">
-          <p id="p-card-total">0</p>
+    <div id="player-card-total">
+      <p id="p-card-total">0</p>
         </div>
     </div>
   </section>
+
+  <p id="place-bet">Place your bet!</p>
 
   <section id="bank">
     <h4>Bank</h4>
@@ -53,15 +58,15 @@
     </div>
   </section>
 
-  <section id="chips">
-    <button id="one-dollar">$1</button>
-    <button id="five-dollars">$5</button>
-    <button id="ten-dollars">$10</button>
-    <button id="twenty-five-dollars">$25</button>
-    <button id="fifty-dollars">$50</button>
-    <button id="one-hundred dollars">$100</button>
-    <button id="five-hundred-dollars">500</button>
-  </section>
+  <div id="chips">
+    <button id="one-dollar" class="chips">$1</button>
+    <button id="five-dollars" class="chips">$5</button>
+    <button id="ten-dollars" class="chips">$10</button>
+    <button id="twenty-five-dollars" class="chips">$25</button>
+    <button id="fifty-dollars" class="chips">$50</button>
+    <button id="one-hundred dollars" class="chips">$100</button>
+    <button id="five-hundred-dollars" class="chips">$500</button>
+  </div>
 
   <button id="play-again">Play Again</button>
   
