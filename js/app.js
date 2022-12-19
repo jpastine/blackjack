@@ -3,12 +3,14 @@
 
 
 /*------------------- Variables --------------------------------*/
-let deckOfCards = []
+let deck = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
+let playedCards = []
 let player
 let dealer
 let winner = false
 let bankRoll = 2000
 let cardValue = 0
+let bet = 0
 
 
 /*------------- Cached Element References ------------------------*/
@@ -43,6 +45,14 @@ playAgainBtn.addEventListener('click', function(evt){
 
 
 /*--------------------- Functions --------------------------------*/
+function init() {
+  
+}
+
+// getRandomCard() {
+//   return Math.floor(Math.random() * (this.deck.length -1))
+// }
+
 function startGame (){
   //screen should be blank except for chips, "place your bet message", and deal button
 }
@@ -56,8 +66,16 @@ function placeBet (){
   //bet amount should reflect bank balance
 }
 
-function shuffleCards() {
+function shuffleCards(deck) {
+  for (let i = 0; i < deck.length; i++){
+    let shuffle = Math.floor(Math.random() * (deck.length))
+    let tempDeck = deck[i]
+    deck[i] = deck[shuffle]
+    deck[shuffle] = tempDeck
+  }
   //shuffle card array
+  console.log(deck)
+  
   //if card array reaches 0, cards should be reshuffled
 }
 
