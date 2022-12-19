@@ -14,7 +14,7 @@ let bankRoll = 0
 let cardValue = 0
 let bet = 0
 let dCardTotal = 0
-let pCardTotal = 21
+let pCardTotal = 0
 let turn = 1
 
 
@@ -30,6 +30,8 @@ const chipBtns = document.getElementById('chips')
 const playAgainBtn = document.getElementById('play-again')
 const dealerCardTotal = document.getElementById('d-card-total')
 const playerCardTotal = document.getElementById('p-card-total')
+const playerCards = document.getElementById('player-cards')
+const dealerCards = document.getElementById('dealer-cards')
 /*------------------ Event Listeners -----------------------------*/
 dealBtn.addEventListener('click', dealCards)
   
@@ -99,11 +101,11 @@ function dealCards(){
     dealer.push(dealerCard1)
     let playerCard1 = deck1.splice(getRandomCard(), 1)
     player.push(playerCard1)
-    let dealerCard2 = deck1.splice(getRandomCard(), 1)
-    dealer.push(dealerCard2)
-    let playerCard2 = deck1.splice(getRandomCard(), 1)
-    player.push(playerCard2) 
-    dCardTotal = getCardValue(dealerCard2[0])
+    // let dealerCard2 = deck1.splice(getRandomCard(), 1)
+    dealer.push(dealerCard1)
+    // let playerCard2 = deck1.splice(getRandomCard(), 1)
+    player.push(playerCard1) 
+    dCardTotal = getCardValue(dealerCard1[0])
     dealerCardTotal.textContent = dCardTotal
     pCardTotal = (getCardValue(playerCard1[0]) + getCardValue(playerCard2[0]))
     playerCardTotal.textContent = pCardTotal
@@ -116,7 +118,8 @@ function dealCards(){
 }
 
 function getCardValue(card) {
-  let splitValue = card.split('').slice(1)
+  let splitValue = card.split('').slice(1).join('')
+  console.log(splitValue)
     if (splitValue === 'K' || 'Q' || 'J') {
     return 10
   } else if (splitValue === 'A') {
@@ -131,9 +134,14 @@ function getCardValue(card) {
 
 
 function playerTurn() {
+  let canHit = false
+  let canStand = false
   if (pCardTotal === 21) {
     playerMessageEl.textContent = 'Blackjack!'
     turn = turn * -1
+  } if (pCardTotal < 20) {
+    canHit = true
+    canStand = true
   }
 }
   playerTurn()
