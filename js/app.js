@@ -103,7 +103,9 @@ function dealCards(){
     dealer.push(dealerCard2)
     let playerCard2 = deck1.splice(getRandomCard(), 1)
     player.push(playerCard2) 
-    getCardValue(playerCard2[0])
+    dCardTotal = getCardValue(dealerCard2[0])
+    pCardTotal = getCardValue(playerCard1[0]) + getCardValue(playerCard2[0])
+    console.log(getCardValue(playerCard2[0]))
   // deal shuffled cards
   // cards should be dealt in order, player gets one, dealer gets face down card, then player, then dealer face up
   // deal button should disappear and hit and stand buttons should appear
@@ -112,8 +114,19 @@ function dealCards(){
 }
 
 function getCardValue(card) {
-  let splitValue = card.split('').
+  let splitValue = card.split('').slice(1)
+  if (splitValue[0] === 'K' || 'Q' || 'J') {
+    return 10
+  } else if (splitValue[0] === 'A') {
+    return 1
+  } else {
+    return splitValue.join('')
+
+  }
 }
+
+  
+
 
 // function playerTurn() {
 //options to hit or stand
