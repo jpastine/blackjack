@@ -3,7 +3,7 @@
 
 
 /*------------------- Variables --------------------------------*/
-let deck1 = []
+let deck1 = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
 let deck2 = []
 let cardToRemove
 let player = []
@@ -30,9 +30,8 @@ const playAgainBtn = document.getElementById('play-again')
 const dealerCardTotal = document.getElementById('d-card-total')
 const playerCardTotal = document.getElementById('p-card-total')
 /*------------------ Event Listeners -----------------------------*/
-dealBtn.addEventListener('click', function(evt) {
-  console.log(evt.target)
-})
+dealBtn.addEventListener('click', dealCards)
+  
 hitBtn.addEventListener('click', function(evt){
   console.log(evt.target)
 })
@@ -52,7 +51,9 @@ playAgainBtn.addEventListener('click', function(evt){
 
 /*--------------------- Functions --------------------------------*/
 function init() {
-  deck = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
+  deck1 = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
+  hitBtn.innerHTML.remove('hit')
+  standBtn.innerHTML.remove('stand')
 }
 
 function handleClick() {
@@ -62,9 +63,9 @@ function handleClick() {
   
 
 
-// getRandomCard() {
-//   return Math.floor(Math.random() * (this.deck.length -1))
-// }
+function getRandomCard() {
+  return Math.floor(Math.random() * (deck1.length -1))
+}
 
 function startGame (){
   //screen should be blank except for chips, "place your bet message", and deal button
@@ -80,26 +81,39 @@ function startGame (){
   //bet amount should reflect bank balance
 // }
 
-function shuffleCards() {
-  for (let i = 0; i < deck1.length; i++){
-    let shuffle = Math.floor(Math.random() * (deck.length))
-    let tempDeck = deck1[i]
-    deck1[i] = deck1[shuffle]
-    deck1[shuffle] = tempDeck
-  }
+// function shuffleCards() {
+//   for (let i = 0; i < deck1.length; i++){
+//     let shuffle = Math.floor(Math.random() * (deck1.length))
+//     let tempDeck = deck1[i]
+//     deck1[i] = deck1[shuffle]
+//     deck1[shuffle] = tempDeck
+//   }
   //shuffle card array
   
   
   //if card array reaches 0, cards should be reshuffled
+// }
+
+function dealCards(){
+  let dealerCard1 = deck1.splice(getRandomCard(), 1)
+    dealer.push(dealerCard1)
+    let playerCard1 = deck1.splice(getRandomCard(), 1)
+    player.push(playerCard1)
+    let dealerCard2 = deck1.splice(getRandomCard(), 1)
+    dealer.push(dealerCard2)
+    let playerCard2 = deck1.splice(getRandomCard(), 1)
+    player.push(playerCard2) 
+    getCardValue(playerCard2[0])
+  // deal shuffled cards
+  // cards should be dealt in order, player gets one, dealer gets face down card, then player, then dealer face up
+  // deal button should disappear and hit and stand buttons should appear
+  // player and dealer cards should show the sum value of dealt cards
+  // initializes playerTurn 
 }
 
-// function dealCards(){
-  //deal shuffled cards
-  //cards should be dealt in order, player gets one, dealer gets face down card, then player, then dealer face up
-  //deal button should disappear and hit and stand buttons should appear
-  //player and dealer cards should show the sum value of dealt cards
-  //initializes playerTurn 
-// }
+function getCardValue(card) {
+  let splitValue = card.split('').
+}
 
 // function playerTurn() {
 //options to hit or stand
