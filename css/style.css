@@ -44,11 +44,11 @@ h3 {
   justify-content: center;
 }
 
-#deal {
+/* #deal {
   display: flex;
   justify-content:center ;
   align-items: center;
-}
+} */
 
 #hit-stand-buttons {
   display: flex;
