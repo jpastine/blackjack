@@ -14,7 +14,7 @@ let bankRoll = 0
 let cardValue = 0
 let bet = 0
 let dCardTotal = 0
-let pCardTotal = 0
+let pCardTotal = 21
 let turn = 1
 
 
@@ -104,7 +104,9 @@ function dealCards(){
     let playerCard2 = deck1.splice(getRandomCard(), 1)
     player.push(playerCard2) 
     dCardTotal = getCardValue(dealerCard2[0])
-    pCardTotal = getCardValue(playerCard1[0]) + getCardValue(playerCard2[0])
+    dealerCardTotal.textContent = dCardTotal
+    pCardTotal = (getCardValue(playerCard1[0]) + getCardValue(playerCard2[0]))
+    playerCardTotal.textContent = pCardTotal
     console.log(pCardTotal)
   // deal shuffled cards
   // cards should be dealt in order, player gets one, dealer gets face down card, then player, then dealer face up
@@ -120,19 +122,21 @@ function getCardValue(card) {
   } else if (splitValue === 'A') {
     return 1
   } else {
-    console.log(splitValue)
     return splitValue
   }
+  
 }
 
   
 
 
 function playerTurn() {
-  if pCardTotal === 21 {
+  if (pCardTotal === 21) {
+    playerMessageEl.textContent = 'Blackjack!'
     turn = turn * -1
-    playerMessageEl.textContent = `Blackjack!`
   }
+}
+  playerTurn()
 
 //options to hit or stand
 //stand should end player turn
@@ -141,7 +145,6 @@ function playerTurn() {
 //if players fisrt two cards equal 21, and dealers do not, player message should read Blackjack and player wins 
 //if sum value is over 21, player turn ends and message should read bust. dealer card should flip and and dealer message should read dealer wins
 
-}
 
 // function dealerTurn() {
   //face down card flips and dealer total updates
