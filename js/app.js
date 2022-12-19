@@ -15,6 +15,7 @@ let cardValue = 0
 let bet = 0
 let dCardTotal = 0
 let pCardTotal = 0
+let turn = 1
 
 
 /*------------- Cached Element References ------------------------*/
@@ -52,8 +53,7 @@ playAgainBtn.addEventListener('click', function(evt){
 /*--------------------- Functions --------------------------------*/
 function init() {
   deck1 = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
-  hitBtn.innerHTML.remove('hit')
-  standBtn.innerHTML.remove('stand')
+  
 }
 
 function handleClick() {
@@ -105,7 +105,7 @@ function dealCards(){
     player.push(playerCard2) 
     dCardTotal = getCardValue(dealerCard2[0])
     pCardTotal = getCardValue(playerCard1[0]) + getCardValue(playerCard2[0])
-    console.log(getCardValue(playerCard2[0]))
+    console.log(pCardTotal)
   // deal shuffled cards
   // cards should be dealt in order, player gets one, dealer gets face down card, then player, then dealer face up
   // deal button should disappear and hit and stand buttons should appear
@@ -115,27 +115,33 @@ function dealCards(){
 
 function getCardValue(card) {
   let splitValue = card.split('').slice(1)
-  if (splitValue === 'K' || 'Q' || 'J') {
+    if (splitValue === 'K' || 'Q' || 'J') {
     return 10
   } else if (splitValue === 'A') {
     return 1
   } else {
-    return 
-
+    console.log(splitValue)
+    return splitValue
   }
 }
 
   
 
 
-// function playerTurn() {
+function playerTurn() {
+  if pCardTotal === 21 {
+    turn = turn * -1
+    playerMessageEl.textContent = `Blackjack!`
+  }
+
 //options to hit or stand
 //stand should end player turn
 //hit draws another card from deck and changes value of cards in player value
 //anytime total of cards is 21, player auto stands 
 //if players fisrt two cards equal 21, and dealers do not, player message should read Blackjack and player wins 
 //if sum value is over 21, player turn ends and message should read bust. dealer card should flip and and dealer message should read dealer wins
-// }
+
+}
 
 // function dealerTurn() {
   //face down card flips and dealer total updates
