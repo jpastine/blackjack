@@ -10,7 +10,7 @@ let player = []
 let dealer =[]
 let winner = false
 let push = false
-let bankRoll = 2000
+let bankRoll = 0
 let cardValue = 0
 let bet = 0
 let dCardTotal = 0
@@ -115,12 +115,12 @@ function dealCards(){
 
 function getCardValue(card) {
   let splitValue = card.split('').slice(1)
-  if (splitValue[0] === 'K' || 'Q' || 'J') {
+  if (splitValue === 'K' || 'Q' || 'J') {
     return 10
-  } else if (splitValue[0] === 'A') {
+  } else if (splitValue === 'A') {
     return 1
   } else {
-    return splitValue.join('')
+    return 
 
   }
 }
