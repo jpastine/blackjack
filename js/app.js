@@ -118,7 +118,8 @@ function renderHands() {
   dealerHand.forEach((card, idx) => {
     let cardToAppend = document.createElement('div')
     if (idx === 0) {
-      cardToAppend.classList.add('card.large.back-red')
+      cardToAppend.textContent = `${card}`
+      cardToAppend.classList.add('red')
     } else {
       cardToAppend.classList.add(card)
     }
