@@ -104,7 +104,7 @@ h3 {
 }
 
 #player-cards > div{
-  margin-bottom: 0px;
+  margin-bottom: 20px;
 }
 
 #player-cards {
@@ -115,6 +115,7 @@ h3 {
 #d-card-total {
   display: flex;
   justify-content: left;
+  margin-bottom: 20px;
 }
 
 #hit,
@@ -138,6 +139,7 @@ h3 {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  background-color: white;
 }
 
 #hit:hover,

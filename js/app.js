@@ -14,7 +14,7 @@ let bankRoll = 0
 let cardValue = 0
 let bet = 0
 let dCardTotal = 0
-let pCardTotal = 0
+let pCardTotal = 21
 let turn = 1
 
 
@@ -139,16 +139,16 @@ function getCardValue(card) {
   
 
 
-// function playerTurn() {
-//   let canHit = true
-//   let canStand = true
-//   if (pCardTotal === 21) {
-//     playerMessageEl.textContent = 'Blackjack!'
-//     turn = turn * -1
-//   } if (pCardTotal < 20) {
+function playerTurn() {
+  // let canHit = true
+  // let canStand = true
+  if (pCardTotal === 21) {
+    playerMessageEl.textContent = 'Blackjack!'
+    // turn = turn * -1
+  } if (pCardTotal < 20) {
     
-//   }
-// }
+  }
+}
   // playerTurn()
 
 //options to hit or stand
