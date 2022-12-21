@@ -73,9 +73,7 @@ function startGame (){
 
 }
 
-// function render () {
-  
-// }
+
 
 // function placeBet () {
   //player clicks chips to place bet
@@ -84,18 +82,13 @@ function startGame (){
 
 
 function dealCards(){
-  
-  // put two cards from the shuffled deck in player hand
   dealerHand = [deck1.splice(getRandomCard(), 1), deck1.splice(getRandomCard(), 1)]
   dealerCardTotal.textContent = getCardValue(dealerHand[0])
+
   playerHand = [deck1.splice(getRandomCard(), 1), deck1.splice(getRandomCard(), 1)]
-  console.log(playerHand)
-  // put two cards from the shuffled deck in dealer hand
+  
   renderHands()
-  console.log(getCardValue(dealerHand[0]))
-  // dCardTotal.value = getCardValue(dealerHand[0])
-  console.log(playerHandEl)
-  console.log(dealerHandEl)
+  
 }
 
 function renderHands() {
@@ -117,12 +110,12 @@ function renderHands() {
     }
   
     dealerHandEl.innerHTML = ''
-  dealerHand.forEach((card, idx) => {
+    dealerHand.forEach((card, idx) => {
     let cardToAppend = document.createElement('div')
-    if (idx === 1) {
-      cardToAppend.classList.add('card', 'back-red', 'large' )
+      if (idx === 1) {
+        cardToAppend.classList.add('card', 'back-red', 'large' )
     } else {
-      cardToAppend.classList.add('card',`${card}`, 'large')
+        cardToAppend.classList.add('card',`${card}`, 'large')
     }
     dealerHandEl.appendChild(cardToAppend)
   })
@@ -133,13 +126,10 @@ function getCardValue(card) {
   let splitValue = card[0].split('').slice(1).join('')
     if (splitValue === 'K' || splitValue ==='Q' || splitValue ==='J') {
     return 10
-  } else if (splitValue == 'A' && pCardTotal <= 11) {
-    return 11
-  } else if (splitValue =='A' && pCardTotal > 11) {
+  } else if (splitValue == 'A') {
     return 1
-  } else {
+  }  else {
     return parseInt(splitValue)
-
   }
 }
   
