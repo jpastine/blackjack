@@ -32,15 +32,14 @@ const dealerCardTotal = document.getElementById('d-card-total')
 const playerCardTotal = document.getElementById('p-card-total')
 const playerHandEl = document.getElementById('player-cards')
 const dealerHandEl = document.getElementById('dealer-cards')
-const placeBetEl  = document.getElementById('place-bet')
+const placeBetEl  = document.getElementById('bet-amount')
 /*------------------ Event Listeners -----------------------------*/
 dealBtn.addEventListener('click', dealCards)
   
 hitBtn.addEventListener('click', playerHit)
 
-standBtn.addEventListener('click', function(evt){
-  console.log(evt.target)
-})
+standBtn.addEventListener('click', playerStand)
+
 allInBtn.addEventListener('click', function(evt){
   console.log(evt.target)
 })
@@ -78,7 +77,7 @@ function startGame (){
   
 // }
 
-// function placeBet (){
+// function placeBet () {
   //player clicks chips to place bet
   //bet amount should reflect bank balance
 // }
@@ -100,21 +99,24 @@ function dealCards(){
 }
 
 function renderHands() {
-  console.log(playerHand)
   playerHandEl.innerHTML = ''
   pCardTotal = 0
+
   playerHand.forEach(card => {
     let cardToAppend = document.createElement('div')
     cardToAppend.classList.add('card',`${card}`, 'large')
     playerHandEl.appendChild(cardToAppend)
       pCardTotal += getCardValue(card)
     })
-    console.log(pCardTotal)
+    
     playerCardTotal.textContent = pCardTotal
     if (pCardTotal >= 22) {
       playerMessageEl.textContent = 'Bust!'
-    } else {}
-  dealerHandEl.innerHTML = ''
+    } else {
+      playerMessageEl.textContent = ''
+    }
+  
+    dealerHandEl.innerHTML = ''
   dealerHand.forEach((card, idx) => {
     let cardToAppend = document.createElement('div')
     if (idx === 1) {
@@ -123,29 +125,35 @@ function renderHands() {
       cardToAppend.classList.add('card',`${card}`, 'large')
     }
     dealerHandEl.appendChild(cardToAppend)
-    
   })
 }
 
 
 function getCardValue(card) {
-  console.log(card)
   let splitValue = card[0].split('').slice(1).join('')
-  console.log(typeof splitValue)
     if (splitValue === 'K' || splitValue ==='Q' || splitValue ==='J') {
     return 10
-  } else if (splitValue == 'A') {
+  } else if (splitValue == 'A' && pCardTotal <= 11) {
+    return 11
+  } else if (splitValue =='A' && pCardTotal > 11) {
     return 1
   } else {
     return parseInt(splitValue)
+
   }
-  
 }
+  
+
 
 function playerHit() {
   playerHand.push(deck1.splice(getRandomCard(), 1))
   renderHands()
 } 
+
+function playerStand() {
+  dealerHand[1].push(deck1.splice(getRandomCard(), 1))
+  renderHands()
+}
 
 
 // function playerTurn() {
