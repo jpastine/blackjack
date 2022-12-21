@@ -111,9 +111,9 @@ function renderHands() {
     })
     console.log(pCardTotal)
     playerCardTotal.textContent = pCardTotal
-    if (pCardTotal > 21) {
+    if (pCardTotal >= 22) {
       playerMessageEl.textContent = 'Bust!'
-    } 
+    } else {}
   dealerHandEl.innerHTML = ''
   dealerHand.forEach((card, idx) => {
     let cardToAppend = document.createElement('div')
