@@ -101,7 +101,15 @@ h3 {
 #player-cards {
   display: flex;
   justify-content: center;
-  /* height: 50%; */
+}
+
+#player-cards > div{
+  margin-bottom: 0px;
+}
+
+#player-cards {
+  margin-bottom: 0px;
+  padding-bottom: 0;
 }
 
 #d-card-total {
@@ -119,9 +127,25 @@ h3 {
   background-color: white;
 }
 
-#hit:hover {
-  
+#p-card-total,
+#d-card-total {
+  display: flex;
+  font-size: 30px;
+  border: 2px solid black;
+  margin-top: 0;
+  height: 50px;
+  width: 50px;  
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
 }
+
+#hit:hover,
+#stand:hover {
+  background-color: red;
+  color: white;
+}
+
 
 #deal,
 #all-in {

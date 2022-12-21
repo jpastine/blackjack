@@ -105,7 +105,6 @@ function renderHands() {
   playerHandEl.innerHTML = ''
   playerHand.forEach(card => {
     let cardToAppend = document.createElement('div')
-    // cardToAppend.textContent = `${card}`
     cardToAppend.classList.add('card',`${card}`, 'large')
     playerHandEl.appendChild(cardToAppend)
   })
@@ -113,7 +112,6 @@ function renderHands() {
   dealerHand.forEach((card, idx) => {
     let cardToAppend = document.createElement('div')
     if (idx === 1) {
-      // cardToAppend.textContent = `${card}`
       cardToAppend.classList.add('card', 'back-red', 'large' )
     } else {
       cardToAppend.classList.add('card',`${card}`, 'large')
