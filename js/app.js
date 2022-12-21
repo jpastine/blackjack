@@ -14,7 +14,7 @@ let bankRoll = 0
 let cardValue = 0
 let bet = 0
 let dCardTotal = 0
-let pCardTotal = 21
+let pCardTotal = 0
 let turn = 1
 
 
@@ -36,9 +36,8 @@ const placeBetEl  = document.getElementById('place-bet')
 /*------------------ Event Listeners -----------------------------*/
 dealBtn.addEventListener('click', dealCards)
   
-hitBtn.addEventListener('click', function(evt){
-  console.log(evt.target)
-})
+hitBtn.addEventListener('click', playerHit)
+
 standBtn.addEventListener('click', function(evt){
   console.log(evt.target)
 })
@@ -91,7 +90,6 @@ function dealCards(){
   dealerHand = [deck1.splice(getRandomCard(), 1), deck1.splice(getRandomCard(), 1)]
   dealerCardTotal.textContent = getCardValue(dealerHand[0])
   playerHand = [deck1.splice(getRandomCard(), 1), deck1.splice(getRandomCard(), 1)]
-  
   console.log(playerHand)
   // put two cards from the shuffled deck in dealer hand
   renderHands()
@@ -102,12 +100,20 @@ function dealCards(){
 }
 
 function renderHands() {
+  console.log(playerHand)
   playerHandEl.innerHTML = ''
+  pCardTotal = 0
   playerHand.forEach(card => {
     let cardToAppend = document.createElement('div')
     cardToAppend.classList.add('card',`${card}`, 'large')
     playerHandEl.appendChild(cardToAppend)
-  })
+      pCardTotal += getCardValue(card)
+    })
+    console.log(pCardTotal)
+    playerCardTotal.textContent = pCardTotal
+    if (pCardTotal > 21) {
+      playerMessageEl.textContent = 'Bust!'
+    } 
   dealerHandEl.innerHTML = ''
   dealerHand.forEach((card, idx) => {
     let cardToAppend = document.createElement('div')
@@ -136,19 +142,22 @@ function getCardValue(card) {
   
 }
 
-  
+function playerHit() {
+  playerHand.push(deck1.splice(getRandomCard(), 1))
+  renderHands()
+} 
 
 
-function playerTurn() {
-  // let canHit = true
-  // let canStand = true
-  if (pCardTotal === 21) {
-    playerMessageEl.textContent = 'Blackjack!'
-    // turn = turn * -1
-  } if (pCardTotal < 20) {
+// function playerTurn() {
+//   // let canHit = true
+//   // let canStand = true
+//   if (pCardTotal === 21) {
+//     playerMessageEl.textContent = 'Blackjack!'
+//     // turn = turn * -1
+//   } if (pCardTotal < 20) {
     
-  }
-}
+//   }
+// }
   // playerTurn()
 
 //options to hit or stand
