@@ -32,6 +32,7 @@ const dealerCardTotal = document.getElementById('d-card-total')
 const playerCardTotal = document.getElementById('p-card-total')
 const playerHandEl = document.getElementById('player-cards')
 const dealerHandEl = document.getElementById('dealer-cards')
+const placeBetEl  = document.getElementById('place-bet')
 /*------------------ Event Listeners -----------------------------*/
 dealBtn.addEventListener('click', dealCards)
   
@@ -83,19 +84,11 @@ function startGame (){
   //bet amount should reflect bank balance
 // }
 
-// function shuffleCards(deck) {
-//   // shuffle cards
-//   // return shuffledDeck
-// }
-
-
-
-// put two cards in each hand (array)
 
 function dealCards(){
   
   // put two cards from the shuffled deck in player hand
-  dealerHand = [deck1.splice(getRandomCard(),1), deck1.splice(getRandomCard(), 1)]
+  dealerHand = [deck1.splice(getRandomCard(), 1), deck1.splice(getRandomCard(), 1)]
   console.log(dealerHand)
   playerHand = [deck1.splice(getRandomCard(), 1), deck1.splice(getRandomCard(), 1)]
   console.log(playerHand)
@@ -109,19 +102,19 @@ function renderHands() {
   playerHandEl.innerHTML = ''
   playerHand.forEach(card => {
     let cardToAppend = document.createElement('div')
-    cardToAppend.textContent = `${card}`
-    cardToAppend.classList.add('player-card')
+    // cardToAppend.textContent = `${card}`
+    cardToAppend.classList.add('card',`${card}`, 'large')
     cardToAppend.id = card
     playerHandEl.appendChild(cardToAppend)
   })
   dealerHandEl.innerHTML = ''
   dealerHand.forEach((card, idx) => {
     let cardToAppend = document.createElement('div')
-    if (idx === 0) {
-      cardToAppend.textContent = `${card}`
-      cardToAppend.classList.add('red')
+    if (idx === 1) {
+      // cardToAppend.textContent = `${card}`
+      cardToAppend.classList.add('card', 'back-red', 'large' )
     } else {
-      cardToAppend.classList.add(card)
+      cardToAppend.classList.add('card',`${card}`, 'large')
     }
     dealerHandEl.appendChild(cardToAppend)
   })
@@ -144,18 +137,17 @@ function getCardValue(card) {
   
 
 
-function playerTurn() {
-  let canHit = false
-  let canStand = false
-  if (pCardTotal === 21) {
-    playerMessageEl.textContent = 'Blackjack!'
-    turn = turn * -1
-  } if (pCardTotal < 20) {
-    canHit = true
-    canStand = true
-  }
-}
-  playerTurn()
+// function playerTurn() {
+//   let canHit = true
+//   let canStand = true
+//   if (pCardTotal === 21) {
+//     playerMessageEl.textContent = 'Blackjack!'
+//     turn = turn * -1
+//   } if (pCardTotal < 20) {
+    
+//   }
+// }
+  // playerTurn()
 
 //options to hit or stand
 //stand should end player turn

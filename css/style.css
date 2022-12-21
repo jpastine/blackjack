@@ -119,6 +119,10 @@ h3 {
   background-color: white;
 }
 
+#hit:hover {
+  
+}
+
 #deal,
 #all-in {
   margin-top: 30px;
