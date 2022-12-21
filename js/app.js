@@ -140,31 +140,40 @@ function playerHit() {
   renderHands()
 } 
 
+function dealerHit() {
+  dealerHand.push(deck1.splice(getRandomCard(), 1))
+  let cardToAppend = document.createElement('div')
+  cardToAppend.classList.add('card',`${card}`, 'large')
+  dealerHandEl.appendChild(cardToAppend)
+  dCardTotal += getCardValue(card)
+}
+
 function playerStand() {
-  let cardToRemove = dealerHand[1]
+  dCardTotal = 0
+  let cardToRemove = dealerHandEl.children[1]
   cardToRemove.classList.remove('card', 'back-red', 'large')
   dealerHandEl.removeChild(cardToRemove)
+  dealerHand.forEach((card, idx) => {
+    let cardToAppend = document.createElement('div')
+    if (idx === 1){
+      cardToAppend.classList.add('card', `${card}`, 'large')
+    }
+    dealerHandEl.appendChild(cardToAppend)
+    dCardTotal += getCardValue(card)
+  })
+  dealerCardTotal.textContent = dCardTotal
+  if (dCardTotal <= 16){
+    dealerHit()
+  } else if (dCardTotal >= 17 || dCardTotal <= 20) {
+    checkForWinner()
+  }
+  
 }
 
 
-// function playerTurn() {
-//   // let canHit = true
-//   // let canStand = true
-//   if (pCardTotal === 21) {
-//     playerMessageEl.textContent = 'Blackjack!'
-//     // turn = turn * -1
-//   } if (pCardTotal < 20) {
-    
-//   }
-// }
-  // playerTurn()
 
-//options to hit or stand
-//stand should end player turn
-//hit draws another card from deck and changes value of cards in player value
-//anytime total of cards is 21, player auto stands 
-//if players fisrt two cards equal 21, and dealers do not, player message should read Blackjack and player wins 
-//if sum value is over 21, player turn ends and message should read bust. dealer card should flip and and dealer message should read dealer wins
+
+
 
 
 // function dealerTurn() {
@@ -176,8 +185,8 @@ function playerStand() {
 
 // }
 
-// function checkForWinner() {
+function checkForWinner() {
   //compare card totals and messages should change for win loss.
   //bank balance reflects winnings if player wins and adjusts properly, 2:1 regular win, 3:2 blackjack win
-// }
+}
 
