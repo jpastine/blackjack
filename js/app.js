@@ -57,29 +57,22 @@ function init() {
   
 }
 
-function handleClick() {
-
-}
-  
-  
-
-
 function getRandomCard() {
   return Math.floor(Math.random() * (deck1.length -1))
 }
 
 function startGame (){
   //screen should be blank except for chips, "place your bet message", and deal button
-
 }
-
-
 
 // function placeBet () {
   //player clicks chips to place bet
   //bet amount should reflect bank balance
 // }
 
+function allIn() {
+
+}
 
 function dealCards(){
   dealerHand = [deck1.splice(getRandomCard(), 1), deck1.splice(getRandomCard(), 1)]
@@ -121,7 +114,6 @@ function renderHands() {
   })
 }
 
-
 function getCardValue(card) {
   let splitValue = card[0].split('').slice(1).join('')
     if (splitValue === 'K' || splitValue ==='Q' || splitValue ==='J') {
@@ -133,20 +125,18 @@ function getCardValue(card) {
   }
 }
   
-
-
 function playerHit() {
   playerHand.push(deck1.splice(getRandomCard(), 1))
   renderHands()
 } 
 
-function dealerHit() {
-  dealerHand.push(deck1.splice(getRandomCard(), 1))
-  let cardToAppend = document.createElement('div')
-  cardToAppend.classList.add('card',`${card}`, 'large')
-  dealerHandEl.appendChild(cardToAppend)
-  dCardTotal += getCardValue(card)
-}
+// function dealerHit() {
+//   dealerHand.push(deck1.splice(getRandomCard(), 1))
+//   let cardToAppend = document.createElement('div')
+//   cardToAppend.classList.add('card',`${card}`, 'large')
+//   dealerHandEl.appendChild(cardToAppend)
+//   dCardTotal += getCardValue(card)
+// }
 
 function playerStand() {
   dCardTotal = 0
@@ -163,30 +153,25 @@ function playerStand() {
   })
   dealerCardTotal.textContent = dCardTotal
   if (dCardTotal <= 16){
-    dealerHit()
+    dealerHand.push(deck1.splice(getRandomCard(), 1))
   } else if (dCardTotal >= 17 || dCardTotal <= 20) {
     checkForWinner()
   }
   
 }
 
-
-
-
-
-
-
-// function dealerTurn() {
-  //face down card flips and dealer total updates
-  //if dealer cards are <= 16, dealer hits
-  //if dealer cards are >=17 and <=20, delaer stands
-  //if dealer has 21, dealer automatically stands 
-  //if dealer is over 21, message should read bust and player message should read player wins
-
-// }
-
 function checkForWinner() {
   //compare card totals and messages should change for win loss.
   //bank balance reflects winnings if player wins and adjusts properly, 2:1 regular win, 3:2 blackjack win
 }
+
+
+
+
+
+
+
+
+
+
 
