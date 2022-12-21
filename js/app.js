@@ -141,8 +141,9 @@ function playerHit() {
 } 
 
 function playerStand() {
-  dealerHand[1].push(deck1.splice(getRandomCard(), 1))
-  renderHands()
+  let cardToRemove = dealerHand[1]
+  cardToRemove.classList.remove('card', 'back-red', 'large')
+  dealerHandEl.removeChild(cardToRemove)
 }
 
 
