@@ -32,13 +32,13 @@ Blackjack is a casino style Blackjack card game with betting logic. The goal of 
   - cardstarter CSS from GitHub
 
 ## Ice Box 
- - [ ] Add styling and animation to cards when being dealt
- - [ ] Add styling and animation to player and dealer messages
- - [ ] Add chips for betting and remove bet input box
- - [ ] Add sound for dealing cards and player win
- - [ ] Double down option
- - [ ] Split option
- - [ ] Insurance option when dealer show Ace on intial deal
+ [ ] Add styling and animation to cards when being dealt
+ [ ] Add styling and animation to player and dealer messages
+ [ ] Add chips for betting and remove bet input box
+ [ ] Add sound for dealing cards and player win
+ [ ] Double down option
+ [ ] Split option
+ [ ] Insurance option when dealer show Ace on intial deal
 
  ### Project planning materials
  - [Planning and Pseudo Code](https://docs.google.com/document/d/11brzPmr2ZGNdlAm3TjRzMyZ7uX4ttR1nOpaD3uIkahA/edit)
