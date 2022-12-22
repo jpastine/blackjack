@@ -214,6 +214,11 @@ h5 {
   margin: 0px;
 }
 
-@media screen and (max-height: 100%){
-  
+@media only screen and (max-height: 1000px) and (max-width: 400px) {
+  body{
+    max-height: 100vh;
+  }
+  .card-container {
+    height: 50px
+  }
 }

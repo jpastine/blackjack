@@ -56,6 +56,7 @@ function init() {
   dealerMessageEl.innerText = ''
   allInBtn.disabled = false
   dealBtn.disabled = true
+  placeBetEl.disabled = false
   playerHand = []
   dealerHand = []
   bet = 0
