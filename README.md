@@ -37,3 +37,7 @@ Blackjack is a casino style Blackjack card game with betting logic. The goal of 
  - [ ] Double down option
  - [ ] Split option
  - [ ] Insurance option when dealer show Ace on intial deal
+
+ ### Project planning materials
+ - [Planning and Pseudo Code](https://docs.google.com/document/d/11brzPmr2ZGNdlAm3TjRzMyZ7uX4ttR1nOpaD3uIkahA/edit)
+ - 
