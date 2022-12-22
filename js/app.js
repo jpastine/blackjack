@@ -53,8 +53,11 @@ function init() {
   playerHandEl.innerHTML = ''
   playerCardTotal.innerText = 0
   dealerCardTotal.innerText = 0
+  playerMessageEl.innerText = ''
+  dealerMessageEl.innerText = ''
   playerHand = []
   dealerHand = []
+  bet = 0
   bankRoll = 2000
   placeBetEl.value = ''
   bankEl.innerText = '$' + bankRoll
