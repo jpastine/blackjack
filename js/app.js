@@ -5,7 +5,6 @@
 /*------------------- Variables --------------------------------*/
 let deck1 = ["dA","dQ","dK","dJ","d10","d09","d08","d07","d06","d05","d04","d03","d02","hA","hQ","hK","hJ","h10","h09","h08","h07","h06","h05","h04","h03","h02","cA","cQ","cK","cJ","c10","c09","c08","c07","c06","c05","c04","c03","c02","sA","sQ","sK","sJ","s10","s09","s08","s07","s06","s05","s04","s03","s02"]
 let deck2 = []
-let cardToRemove
 let playerHand
 let dealerHand
 let winner = false
@@ -15,7 +14,6 @@ let cardValue = 0
 let bet = 0
 let dCardTotal = 0
 let pCardTotal = 0
-let turn = 1
 
 
 /*------------- Cached Element References ------------------------*/
@@ -86,10 +84,10 @@ function handleBet(e) {
   console.log('bet')
   bet = e.target.value
   if (bet < bankRoll){
-  dealBtn.disabled = false
-} else {
-  playerMessageEl.textContent = 'NOT ENOUGHT MONEY!'
-}
+    dealBtn.disabled = false
+  } else {
+    playerMessageEl.textContent = 'NOT ENOUGHT MONEY!'
+  }
 }
 
 function dealCards(){
@@ -120,9 +118,9 @@ function renderHands() {
     let cardToAppend = document.createElement('div')
       if (idx === 1) {
         cardToAppend.classList.add('card', 'back-red', 'large' )
-    } else {
+      } else {
         cardToAppend.classList.add('card',`${card}`, 'large')
-    }
+      }
     dealerHandEl.appendChild(cardToAppend)
   })
 }
@@ -131,11 +129,11 @@ function getCardValue(card) {
   let splitValue = card[0].split('').slice(1).join('')
     if (splitValue === 'K' || splitValue ==='Q' || splitValue ==='J') {
     return 10
-  } else if (splitValue === 'A') {
+    } else if (splitValue === 'A') {
     return 11
-  }  else {
+    }  else {
     return parseInt(splitValue)
-  }
+    }
 }
   
 function playerHit() {
@@ -148,9 +146,6 @@ function playerHit() {
       displayCards(dealerHand)
       calcTotal(dealerHand)
       dealerMessageEl.textContent = 'Dealer Wins'
-    } else if (pCardTotal === 21) {
-      playerMessageEl.textContent = 'BlackJack!!'
-      playerStand()
     } else {
       playerMessageEl.textContent = ''
     }
@@ -215,19 +210,19 @@ function calcTotal(deck) {
     if (deck === playerHand) {
       pCardTotal = total
       playerCardTotal.innerHTML = pCardTotal
-  } else {
+    } else {
       dCardTotal = total
       dealerCardTotal.innerHTML = dCardTotal
-  }
+    }
 }
 
 function calcAce(total, aces) {
   let aceTotal = total
   for (let i = 0; i < aces; i++) {
-  if (total > 21){
+    if (total > 21){
     aceTotal = total - 10
-  }} 
-  return aceTotal
+    }} 
+    return aceTotal
 }
   
 
