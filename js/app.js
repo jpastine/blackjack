@@ -91,6 +91,7 @@ function handleBet(e) {
 }
 
 function dealCards(){
+  hitBtn.disabled = false
   if (deck1.length < 4) {
     shuffleDeck()
   }
