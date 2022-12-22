@@ -148,6 +148,9 @@ function playerHit() {
       displayCards(dealerHand)
       calcTotal(dealerHand)
       dealerMessageEl.textContent = 'Dealer Wins'
+    } else if (pCardTotal === 21) {
+      playerMessageEl.textContent = 'BlackJack!!'
+      playerStand()
     } else {
       playerMessageEl.textContent = ''
     }
