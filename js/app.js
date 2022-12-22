@@ -131,14 +131,17 @@ function getCardValue(card) {
   
 function playerHit() {
   playerHand.push(deck1.splice(getRandomCard(), 1))
+  displayCards(playerHand)
+  calcTotal(playerHand)
   playerCardTotal.textContent = pCardTotal
     if (pCardTotal > 21) {
       playerMessageEl.textContent = 'Bust!'
+      displayCards(dealerHand)
+      calcTotal(dealerHand)
+      dealerMessageEl.textContent = 'Dealer Wins'
     } else {
       playerMessageEl.textContent = ''
     }
-  displayCards(playerHand)
-  calcTotal(playerHand)
 } 
 
 
