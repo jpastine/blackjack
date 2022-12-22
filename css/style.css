@@ -214,11 +214,25 @@ h5 {
   margin: 0px;
 }
 
-@media only screen and (max-height: 1000px) and (max-width: 400px) {
+@media only screen and (max-height: 1024px) and (max-width: 800px) {
   body{
     max-height: 100vh;
+    margin-top: 0;
+    border: 0;
+    padding: 0;
   }
   .card-container {
     height: 50px
+  }
+  #hit,
+  #stand {
+    height: 60px;
+    width: 60px;
+  }
+  #bet-amt {
+    height: 90px;
+  }
+  #deal {
+    margin-top: 0;
   }
 }
