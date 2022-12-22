@@ -20,7 +20,6 @@ body {
 }
 
 section {
-  /* max-height: 20%; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,14 +67,15 @@ h3 {
   display: flex;
   justify-content: center;
   font-size: 30px;
+  height: 35px;
 }
 
 #bet-amt {
   font-size: 20px;
   font-weight: bold;
+  margin-top: 0px;
+  height: auto;
 }
-
-
 
 #hit-stand-buttons {
   display: flex;
@@ -118,7 +118,7 @@ h3 {
 #d-card-total {
   display: flex;
   justify-content: left;
-  margin-bottom: 20px;
+  margin-bottom: 2px;
 }
 
 #hit,
@@ -188,6 +188,7 @@ h4 {
 }
 
 #bank {
+  height: 60px;
   margin-bottom: 0;
   padding-bottom: 0;
   border-bottom: 0;
@@ -202,4 +203,13 @@ h4 {
 
 #bet-amount {
   height: 25px;
+}
+
+.card-container {
+  height: 143px;
+  margin-bottom: 5px;
+}
+
+h5 {
+  margin: 0px;
 }
