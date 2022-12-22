@@ -81,7 +81,6 @@ function allIn() {
   }
 
 function handleBet(e) {
-  console.log('bet')
   bet = e.target.value
   if (bet < bankRoll){
     dealBtn.disabled = false
@@ -200,7 +199,6 @@ function calcTotal(deck) {
   let hasAce = []
   deck.forEach((card) => {
     let splitValue = card[0].split('').slice(1).join('')
-    console.log(splitValue)
     if (splitValue === 'A') {
       hasAce.push(splitValue)
     }
@@ -245,6 +243,7 @@ function checkForWinner() {
     bankRoll += bet
     bankEl.innerText = "$" + bankRoll
   }
+  placeBetEl.value = ''
 }
 
 function playerBlackjack() {
