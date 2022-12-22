@@ -220,6 +220,7 @@ h5 {
     margin-top: 0;
     border: 0;
     padding: 0;
+    position:fixed;
   }
   .card-container {
     height: 50px
@@ -230,7 +231,7 @@ h5 {
     width: 60px;
   }
   #bet-amt {
-    height: 90px;
+    height: 70px;
   }
   #deal {
     margin-top: 0;
