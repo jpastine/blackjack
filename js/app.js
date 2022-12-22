@@ -43,16 +43,21 @@ allInBtn.addEventListener('click', allIn)
 
 placeBetEl.addEventListener('change', handleBet)
 
-// playAgainBtn.addEventListener('click', function())
+playAgainBtn.addEventListener('click', playAgain)
 
 
 /*--------------------- Functions --------------------------------*/
 function init() {
   shuffleDeck()
+  dealerHandEl.innerHTML = ''
+  playerHandEl.innerHTML = ''
+  playerCardTotal.innerText = 0
+  dealerCardTotal.innerText = 0
   playerHand = []
   dealerHand = []
   bankRoll = 2000
-  bankEl = '$' + bankRoll
+  placeBetEl.value = ''
+  bankEl.innerText = '$' + bankRoll
   if (bet > 0) {
     dealBtn.disabled = false
   }
@@ -71,6 +76,7 @@ function allIn() {
   dealBtn.disabled = false
   bet = bankRoll
   placeBetEl.value = bet
+  dealCards()
   }
 
 function handleBet(e) {
@@ -151,11 +157,12 @@ function playerStand() {
   calcTotal(dealerHand)
   dealerCardTotal.textContent = dCardTotal
   if (dCardTotal === 21) {
-    dealerMessageEl.textContent = 'Blackjack!'
+    checkForWinner()
   } else if (dCardTotal > 21) {
     dealerMessageEl.textContent = "Bust!"
     playerMessageEl.textContent = 'Player Wins!'
     bankRoll += bet * 2
+    bankEl.innerText = "$" + bankRoll
   } else if (dCardTotal >= 17 && dCardTotal <= 20) {
     checkForWinner()
   } else if (dCardTotal <= 16){
@@ -224,6 +231,7 @@ function checkForWinner() {
     dealerMessageEl.textContent = 'Dealer loses'
     dealBtn.disabled = true
     bankRoll += bet * 2
+    bankEl.innerText = "$" + bankRoll
   } else if (pCardTotal < dCardTotal) {
     playerMessageEl.textContent = 'Player loses'
     dealerMessageEl.textContent = 'Dealer wins!'
@@ -232,6 +240,7 @@ function checkForWinner() {
     playerMessageEl.textContent = 'Push!'
     dealBtn.disabled = true
     bankRoll += bet
+    bankEl.innerText = "$" + bankRoll
   }
 }
 
@@ -240,6 +249,10 @@ function playerBlackjack() {
   displayCards(dealerHand)
   calcTotal(dealerHand)
   checkForWinner()
+}
+
+function playAgain() {
+  init()
 }
 
 
