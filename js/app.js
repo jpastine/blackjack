@@ -154,6 +154,7 @@ function playerHit() {
     if (pCardTotal > 21) {
       playerMessageEl.textContent = 'Bust!'
       hitBtn.disabled = true
+      placeBetEl.disabled = false
       displayCards(dealerHand)
       calcTotal(dealerHand)
       dealerMessageEl.textContent = 'Dealer Wins'
