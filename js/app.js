@@ -53,7 +53,9 @@ function init() {
   dealerHand = []
   bankRoll = 2000
   bankEl = '$' + bankRoll
-  dealBtn.disabled = true
+  if (bet > 0) {
+    dealBtn.disabled = false
+  }
 }
 
 function shuffleDeck() {
@@ -150,6 +152,7 @@ function playerStand() {
   } else if (dCardTotal > 21) {
     dealerMessageEl.textContent = "Bust!"
     playerMessageEl.textContent = 'Player Wins!'
+    bankRoll += bet * 2
   } else if (dCardTotal >= 17 && dCardTotal <= 20) {
     checkForWinner()
   } else if (dCardTotal <= 16){
