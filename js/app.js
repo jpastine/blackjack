@@ -112,7 +112,6 @@ function dealCards(){
   playerMessageEl.textContent = ''
   dealerHand = [deck1.splice(getRandomCard(), 1), deck1.splice(getRandomCard(), 1)]
   dealerCardTotal.textContent = getCardValue(dealerHand[0])
-
   playerHand = [deck1.splice(getRandomCard(), 1), deck1.splice(getRandomCard(), 1)]
   
   renderHands()
@@ -156,7 +155,6 @@ function playerHit() {
       playerMessageEl.textContent = 'Bust!'
       hitBtn.disabled = true
       placeBetEl.disabled = false
-      placeBetEl.value = ''
       if (bankRoll === 0) {
         allInBtn.disabled = true
         dealBtn.disabled = true
@@ -238,9 +236,9 @@ function calcAce(total, aces) {
   let aceTotal = total
   for (let i = 0; i < aces; i++) {
     if (total > 21){
-    aceTotal = total - 10
+    total = aceTotal -= 10
     }} 
-    return aceTotal
+    return total
 }
   
 
