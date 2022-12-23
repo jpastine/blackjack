@@ -156,6 +156,11 @@ function playerHit() {
       playerMessageEl.textContent = 'Bust!'
       hitBtn.disabled = true
       placeBetEl.disabled = false
+      placeBetEl.value = ''
+      if (bankRoll === 0) {
+        allInBtn.disabled = true
+        dealBtn.disabled = true
+      }
       displayCards(dealerHand)
       calcTotal(dealerHand)
       dealerMessageEl.textContent = 'Dealer Wins'
@@ -243,17 +248,14 @@ function checkForWinner() {
   if (pCardTotal > dCardTotal) {
     playerMessageEl.textContent = 'Player wins!'
     dealerMessageEl.textContent = 'Dealer loses'
-    // dealBtn.disabled = true
     bankRoll += bet * 2
     bankEl.innerText = "$" + bankRoll
   } else if (pCardTotal < dCardTotal) {
     playerMessageEl.textContent = 'Player loses'
     dealerMessageEl.textContent = 'Dealer wins!'
-    // dealBtn.disabled = true
     placeBetEl.value = parseInt(bet)
   } else if (pCardTotal === dCardTotal) {
     playerMessageEl.textContent = 'Push!'
-    // dealBtn.disabled = true
     bankRoll += parseInt(bet)
     bankEl.innerText = "$" + bankRoll
   }
